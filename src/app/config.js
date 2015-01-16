@@ -130,4 +130,28 @@ app.cfg = {
 	//DEFAULT_SHARING_URL: "//portal.internal.com/arcgis/sharing/content/items",
 	DEFAULT_PROXY_URL: "//www.arcgis.com/sharing/proxy"
 	//DEFAULT_PROXY_URL: "//portal.internal.com/arcgis/sharing/proxy"
+	
+	httpProxy: {
+	        useProxy: true,
+	        url: "http://184.73.165.29/demo/sampleStoryPublic/proxy/proxy.php",
+	        alwaysUseProxy: "true",
+	        rules: [{
+	                urlPrefix: "http://www.arcgis.com",
+	                proxyUrl: "http://184.73.165.29/demo/sampleStoryPublic/proxy/proxy.php"
+	            },
+	            {
+	                urlPrefix: "http://services1.arcgis.com",
+	                proxyUrl: "http://184.73.165.29/demo/sampleStoryPublic/proxy/proxy.php"
+	            },
+	            {
+	                urlPrefix: "http://services.arcgis.com",
+	                proxyUrl: "http://184.73.165.29/demo/sampleStoryPublic/proxy/proxy.php"
+	            },
+	            {
+	                urlPrefix: "http://vUSA.maps.arcgis.com/sharing/rest/content/items",
+	                proxyUrl: "http://184.73.165.29/demo/sampleStoryPublic/proxy/proxy.php"
+	            }
+	            
+	       	]
+	  }
 };
