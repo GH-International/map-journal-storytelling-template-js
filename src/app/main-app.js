@@ -10,11 +10,14 @@ if (document.location.protocol == "file:") {
 
     require([
         "dojo/i18n!./resources/tpl/viewer/nls/template.js?v=" + app.version,
+	"dojo/_base/array",
         "esri/urlUtils",
         "dojo/dom",
         "dojo/ready"
     ], function(
         i18nViewer,
+        array,
+    	esriUrlUtils,
         urlUtils,
         dom
     ) {
