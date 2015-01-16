@@ -21,6 +21,17 @@ else {
 		){
 			i18n = i18nViewer;
 			
+	            	console.log("add proxy..");
+			//all proxy rules defined in this object.
+			urlUtils.addProxyRule({
+				urlPrefix: "www.arcgis.com/sharing/content/items",  
+				proxyUrl: "proxy/proxy.php"
+			});
+			urlUtils.addProxyRule({
+				urlPrefix: "services1.arcgis.com",  
+				proxyUrl: "proxy/proxy.php"
+			});
+			
 		 	require([
 					"storymaps/common/Core", 
 					"storymaps/tpl/core/MainView",
