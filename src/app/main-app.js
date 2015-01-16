@@ -42,19 +42,20 @@ if (document.location.protocol == "file:") {
         /**/
         // Section below contains the proxy rules from the config file (config.js)
         esriConfig.defaults.io.alwaysUseProxy = app.cfg.httpProxy && app.cfg.httpProxy.useProxy && app.cfg.httpProxy.alwaysUseProxy;
-        esriConfig.defaults.io.proxyUrl = "";
-        esriConfig.defaults.io.proxyRules = [];
-
-        if (app.cfg.httpProxy && app.cfg.httpProxy.useProxy && app.cfg.httpProxy.url) {
-            esriConfig.defaults.io.proxyUrl = app.cfg.httpProxy.url;
-        }
-
-        if (app.cfg.httpProxy && app.cfg.httpProxy.useProxy && app.cfg.httpProxy.rules) {
-            //console.log('must be true..');
-            array.forEach(app.cfg.httpProxy.rules, function(rule) {
-                esriUrlUtils.addProxyRule(rule);
-            });
-        };
+	esriConfig.defaults.io.proxyUrl = "";
+	esriConfig.defaults.io.proxyRules = [];
+	
+	if (app.cfg.httpProxy && app.cfg.httpProxy.useProxy && app.cfg.httpProxy.url) {
+		esriConfig.defaults.io.proxyUrl = app.cfg.httpProxy.url;
+	}
+	
+	if (app.cfg.httpProxy && app.cfg.httpProxy.useProxy && app.cfg.httpProxy.rules) {
+		console.log('there be rules..');
+		array.forEach(app.cfg.httpProxy.rules, function(rule) {
+		    esriUrlUtils.addProxyRule(rule);
+		    console.log(rule);
+		});
+	};
 
         require([
             "storymaps/common/Core",
